@@ -40,5 +40,6 @@ public class AssignmentList extends ArrayList<Assignment> {
                 }
             }
         }
+
     }
 }

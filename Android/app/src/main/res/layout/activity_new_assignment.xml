@@ -24,12 +24,20 @@
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true" />
 
+    <EditText android:id="@+id/prioritySelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter Priority 1-3 (3 = Very Important)"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/duration"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter Due Date:"
         android:id="@+id/textView"
-        android:layout_below="@+id/duration"
+        android:layout_below="@+id/prioritySelector"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
@@ -46,8 +54,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/abc_action_bar_default_padding_material"
-        android:layout_marginBottom="130dp"
         android:onClick="onClick"/>
 
     <DatePicker

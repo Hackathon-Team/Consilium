@@ -58,7 +58,7 @@ public class NewAssignmentActivity extends Activity {
         intntToMainActivity = new Intent();
         intntToMainActivity.putExtra("title", txtAssignName.getText().toString());
         intntToMainActivity.putExtra("priority", priority);
-        intntToMainActivity.putExtra("dueMonth", datepicker.getMonth());
+        intntToMainActivity.putExtra("dueMonth", datepicker.getMonth()+1);
         intntToMainActivity.putExtra("dueDay", datepicker.getDayOfMonth());
         intntToMainActivity.putExtra("dueYear", datepicker.getYear());
         intntToMainActivity.putExtra("duration", duration);

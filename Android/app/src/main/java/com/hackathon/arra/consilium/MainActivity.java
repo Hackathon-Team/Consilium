@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ import java.util.Date;
 
 public class MainActivity extends ActionBarActivity {
     private ListView mListView;
-    private AssignmentList mAssignments = new AssignmentList(new Assignment("Eat Dinner", 1, new Date(2015, 2, 9), 25), new Assignment("Calculus Homework", 3, new Date(2015, 1, 8), 25), new Assignment("APUSH Worksheet", 2, new Date(2015, 2, 8), 25));
+    private AssignmentList mAssignments = new AssignmentList(new Assignment("Eat Dinner", 1, new Date(2015, 2, 9), 25), new Assignment("Calculus Homework", 3, new Date(2015, 3, 8), 25), new Assignment("APUSH Worksheet", 2, new Date(2015, 2, 8), 500));
     private Intent intntToNewAssignment;
     ArrayAdapter<Assignment> mArrayAdapter;
 
@@ -40,11 +41,6 @@ public class MainActivity extends ActionBarActivity {
         // Get ListView object from xml
         mListView = (ListView) findViewById(R.id.listView);
 
-        // ArrayList values
-//        mAssignments = new AssignmentList();
-//            mAssignments.add(new Assignment("Eat Dinner", 1, new Date(2015, 2, 9), 25)); // no3
-//            mAssignments.add(new Assignment("Calculus Homework", 3, new Date(2015, 1, 8), 25)); // no1
-//            mAssignments.add(new Assignment("APUSH Worksheet", 2, new Date(2015, 2, 8), 25)); // no2
         updateAssignmentList();
         Log.d("Show number of items", mAssignments.size() + "");
 
@@ -59,11 +55,19 @@ public class MainActivity extends ActionBarActivity {
         // Assign adapter to ListView
         mListView.setAdapter(mArrayAdapter);
 
-//        mListView.setOnClickListener(new AdapterView.OnClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//            }
-//        });
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Assignment temp = (Assignment) mListView.getItemAtPosition(position);
+//                Intent intntToDetailedViewActivity = new Intent(MainActivity.this, DetailedViewActivity.class);
+//                intntToDetailedViewActivity.putExtra("title", temp.toString());
+//                intntToDetailedViewActivity.putExtra("priority", temp.getPriority());
+//                intntToDetailedViewActivity.putExtra("dueMonth", temp.getDueDate().getMonth());
+//                intntToDetailedViewActivity.putExtra("dueDay", temp.getDueDate().getDay());
+//                intntToDetailedViewActivity.putExtra("dueYear", temp.getDueDate().getYear());
+//                intntToDetailedViewActivity.putExtra("duration", temp.getDuration());
+//                startActivityForResult(intntToDetailedViewActivity, 2);
+            }
+        });
     }
 
 
@@ -103,61 +107,86 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void freeTime(View view) {
-        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        alert.setTitle("ALERT");
-        alert.setMessage("How Much Free Time Do You Have?");
+        builder.setTitle("ALERT");
+        builder.setMessage("How Much Free Time Do You Have?");
 
         // Set an EditText view to get user input
         final EditText input = new EditText(this);
         //input.setRawInputType(InputType.TYPE_CLASS_NUMBER);
         input.setHint("In Minutes");
-        alert.setView(input);
+        builder.setView(input);
 
-        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            private boolean shouldFindAssignment = false;
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 int squoTime = Integer.parseInt(input.getText().toString());
-
-
-                AssignmentList dueTomorrow = new AssignmentList();
-                Calendar todayDate = Calendar.getInstance();
-                Calendar cal = Calendar.getInstance();
-
-                for(Assignment ass : mAssignments) {
-                    cal.setTime(ass.getDueDate());
-                    if(cal.get(Calendar.MONTH) == todayDate.get(Calendar.MONTH) && cal.get(Calendar.YEAR) == todayDate.get(Calendar.YEAR) && cal.get(Calendar.DATE) - 1 == todayDate.get(Calendar.DATE)) {
-                        dueTomorrow.add(ass);
-                    }
-                }
-
-                int diff = 10000000;
-                int min = 0;
-                for(Assignment ass: dueTomorrow) {
-                    if(ass.getDuration() <= squoTime && diff > squoTime-ass.getDuration()) {
-                        diff=squoTime-ass.getDuration();
-                        min = dueTomorrow.indexOf(ass);
-                    }
-                }
-
-                alert.setTitle("You Should Work On:");
-                alert.setMessage(dueTomorrow.get(min).toString());
-
-                alert.show();
+                showAssignment(squoTime);
+                dialog.dismiss();
             }
-
         });
 
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                // Canceled.
+                dialog.dismiss();
             }
         });
 
-        alert.show();
+        builder.show();
     }
 
     public void updateAssignmentList() {
         mAssignments.sortDate();
     }
+
+    public void showAssignment(int squoTime)
+    {
+
+
+        ArrayList<Assignment> dueTomorrow = new ArrayList<Assignment>();
+        Date now = new Date(System.currentTimeMillis());
+        Calendar cal = Calendar.getInstance();
+
+        for(Assignment ass : mAssignments) {
+            cal.setTime(ass.getDueDate());
+            if(ass.getDueDate().compareTo(now)>0) {
+                dueTomorrow.add(ass);
+            }
+        }
+        Log.d("Size of the ArrayList",dueTomorrow.size()+"");
+        AlertDialog.Builder assignAlert = new AlertDialog.Builder(this);
+
+        if(dueTomorrow.size() > 0) {
+            int diff = 10000000;
+            int min = 0;
+            for (Assignment ass : dueTomorrow) {
+                if (ass.getDuration() <= squoTime && diff > squoTime - ass.getDuration()) {
+                    diff = squoTime - ass.getDuration();
+                    min = dueTomorrow.indexOf(ass);
+                }
+            }
+            assignAlert.setTitle("You Should Work On:");
+            assignAlert.setMessage(dueTomorrow.get(min).toString());
+        }
+        else
+        {
+            int diff = 10000000;
+            int min = 0;
+            for (Assignment ass : mAssignments) {
+                if (ass.getDuration() <= squoTime && diff > squoTime - ass.getDuration()) {
+                    diff = squoTime - ass.getDuration();
+                    min = mAssignments.indexOf(ass);
+                }
+            }
+            assignAlert.setTitle("You Should Work On:");
+            assignAlert.setMessage(mAssignments.get(min).toString());
+        }
+
+        assignAlert.show();
+    }
+
+
+
 }
