@@ -9,6 +9,7 @@
 #import "HSViewController.h"
 #import "Assignment.h"
 #import "HSDetailViewController.h"
+#import "HSEditViewController.h"
 
 @interface HSViewController ()
 
@@ -19,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add)];
         
     
 }
@@ -70,6 +71,14 @@
 {
     [super didReceiveMemoryWarning];
 
+}
+
+-(void)add
+{
+    Assignment *ass = [[Assignment alloc] initWithName:nil];
+    HSEditViewController *vc = [[HSEditViewController alloc] init];
+    [vc updateAssignment:ass];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

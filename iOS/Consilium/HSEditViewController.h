@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Assignment.h"
 
-@interface HSEditViewController : UIViewController <UITextFieldDelegate>
+@interface HSEditViewController : UIViewController <UITextFieldDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) Assignment *assignment;
 @property(nonatomic, strong) UITextField *textField1;

@@ -10,7 +10,7 @@
 
 @interface Assignment : NSObject
 
-@property (nonatomic,strong,readonly) NSString *name;
+@property (nonatomic,strong) NSString *name;
 
 
 -(id)initWithName:(NSString *) name;
