@@ -1,5 +1,7 @@
 package com.hackathon.arra.consilium;
 
+import android.widget.ArrayAdapter;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -7,23 +9,14 @@ import java.util.Date;
 /**
  * Created by Abinesh on 2/7/15.
  */
-public class AssignmentList {
+public class AssignmentList extends ArrayList<Assignment> {
     /**
      * @param mAssignments Holds all of user's assignments
      */
     private ArrayList<Assignment> mAssignments = new ArrayList<Assignment>();
 
-    AssignmentList() {
-        Assignment ass2 = new Assignment(2, new Date(2015, 2, 8), 30);
-        mAssignments.add(ass2);
-        Assignment ass1 = new Assignment(3, new Date(2015, 2, 8), 30);
-        mAssignments.add(ass1);
-        Assignment ass3 = new Assignment(2, new Date(2015, 1, 8), 30);
-        mAssignments.add(ass3);
-    }
-
-    public void addAssignment(Assignment assignment) {
-        mAssignments.add(assignment);
+    public void addAssignment(Assignment assign) {
+        mAssignments.add(assign);
     }
 
     public void sortDuration() {
