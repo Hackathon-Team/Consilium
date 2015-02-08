@@ -20,6 +20,8 @@
 
         <activity android:name="NewAssignmentActivity" />
 
+        <activity android:name="DetailedViewActivity" />
+
     </application>
 
 </manifest>

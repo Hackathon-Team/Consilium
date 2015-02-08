@@ -33,10 +33,31 @@ public class AssignmentList extends ArrayList<Assignment> {
     public void sortDate() {
         for(int outer = 0; outer < this.size()-1; outer++){
             for(int inner = 0; inner < this.size()-outer-1; inner++){
-                if(this.get(inner).getDueDate().after(this.get(inner+1).getDueDate())) {
+                if(this.get(inner).getDueYear()>this.get(inner+1).getDueYear()) {
                     Assignment temp = this.get(inner);
                     this.set(inner,this.get(inner+1));
                     this.set(inner+1, temp);
+                }
+                else if(this.get(inner).getDueYear()==this.get(inner+1).getDueYear()) {
+                    if(this.get(inner).getDueMonth()>this.get(inner+1).getDueMonth()) {
+                        Assignment temp = this.get(inner);
+                        this.set(inner,this.get(inner+1));
+                        this.set(inner+1, temp);
+                    }
+                    else if(this.get(inner).getDueMonth()==this.get(inner+1).getDueMonth()) {
+                        if(this.get(inner).getDueDate()>this.get(inner+1).getDueDate()) {
+                            Assignment temp = this.get(inner);
+                            this.set(inner,this.get(inner+1));
+                            this.set(inner+1, temp);
+                        }
+                        else if(this.get(inner).getDueDate()==this.get(inner+1).getDueDate()) {
+                            if(this.get(inner).getPriority()>this.get(inner+1).getPriority()) {
+                                Assignment temp = this.get(inner);
+                                this.set(inner, this.get(inner+1));
+                                this.set(inner+1,temp);
+                            }
+                        }
+                    }
                 }
             }
         }

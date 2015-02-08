@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * Created by Abinesh on 2/7/15.
  */
-public class Assignment extends LauncherActivity.ListItem implements Comparable<Assignment>, Parcelable {
+public class Assignment extends LauncherActivity.ListItem implements Comparable<Assignment> {
     /**
      * @param String value for the assignment's title
      */
@@ -25,7 +25,9 @@ public class Assignment extends LauncherActivity.ListItem implements Comparable<
     /**
      * @param mDueDate Instance of Date class that holds the due date of the class
      */
-    private Date mDueDate;
+    private int mDueDate;
+    private int mDueMonth;
+    private int mDueYear;
 
     /**
      * @param mDuration Integer that holds the length of time an assignment takes
@@ -38,10 +40,12 @@ public class Assignment extends LauncherActivity.ListItem implements Comparable<
      * @param dueDate Instance of Date class that holds the due date of the class
      * @param duration Integer that holds the length of time an assignment takes
      */
-    Assignment(String title, int priority, Date dueDate, int duration) {
+    Assignment(String title, int priority, int dueYear, int dueMonth, int dueDate,  int duration) {
         mTitle = title;
         mPriority = priority;
         mDueDate = dueDate;
+        mDueMonth = dueMonth;
+        mDueYear = dueYear;
         mDuration = duration;
     }
 
@@ -49,9 +53,11 @@ public class Assignment extends LauncherActivity.ListItem implements Comparable<
         return mPriority;
     }
 
-    public Date getDueDate() {
+    public int getDueDate() {
         return mDueDate;
     }
+    public int getDueYear() {return mDueYear;}
+    public int getDueMonth() {return mDueMonth;}
 
     public int getDuration() {
         return mDuration;
@@ -69,15 +75,5 @@ public class Assignment extends LauncherActivity.ListItem implements Comparable<
         if(this.getDuration() > another.getDuration()) return 1;
         else if(this.getDuration() == another.getDuration()) return 0;
         else return -1;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
     }
 }

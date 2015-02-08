@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -53,7 +54,7 @@ public class NewAssignmentActivity extends Activity {
         EditText time = (EditText) findViewById(R.id.duration);
         int duration = Integer.parseInt(time.getText().toString());
         DatePicker datepicker = (DatePicker) findViewById(R.id.datePicker);
-        int priority = 1; //how are we defining this?
+        int priority = Integer.parseInt(((EditText) findViewById(R.id.prioritySelector)).getText().toString()); //how are we defining this?
 
         intntToMainActivity = new Intent();
         intntToMainActivity.putExtra("title", txtAssignName.getText().toString());
@@ -62,6 +63,8 @@ public class NewAssignmentActivity extends Activity {
         intntToMainActivity.putExtra("dueDay", datepicker.getDayOfMonth());
         intntToMainActivity.putExtra("dueYear", datepicker.getYear());
         intntToMainActivity.putExtra("duration", duration);
+
+
         setResult(RESULT_OK, intntToMainActivity);
         finish();
     }

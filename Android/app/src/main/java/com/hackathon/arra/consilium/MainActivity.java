@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,7 +27,7 @@ import java.util.Date;
 
 public class MainActivity extends ActionBarActivity {
     private ListView mListView;
-    private AssignmentList mAssignments = new AssignmentList(new Assignment("Eat Dinner", 1, new Date(2015, 2, 9), 25), new Assignment("Calculus Homework", 3, new Date(2015, 3, 8), 25), new Assignment("APUSH Worksheet", 2, new Date(2015, 2, 8), 500));
+    private AssignmentList mAssignments = new AssignmentList(new Assignment("Eat Dinner", 1, 2015, 2, 9, 25), new Assignment("Calculus Homework", 3, 2015, 3, 8, 25), new Assignment("APUSH Worksheet", 2, 2015, 3, 8, 25));
     private Intent intntToNewAssignment;
     ArrayAdapter<Assignment> mArrayAdapter;
 
@@ -58,14 +59,15 @@ public class MainActivity extends ActionBarActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Assignment temp = (Assignment) mListView.getItemAtPosition(position);
-//                Intent intntToDetailedViewActivity = new Intent(MainActivity.this, DetailedViewActivity.class);
-//                intntToDetailedViewActivity.putExtra("title", temp.toString());
-//                intntToDetailedViewActivity.putExtra("priority", temp.getPriority());
-//                intntToDetailedViewActivity.putExtra("dueMonth", temp.getDueDate().getMonth());
-//                intntToDetailedViewActivity.putExtra("dueDay", temp.getDueDate().getDay());
-//                intntToDetailedViewActivity.putExtra("dueYear", temp.getDueDate().getYear());
-//                intntToDetailedViewActivity.putExtra("duration", temp.getDuration());
-//                startActivityForResult(intntToDetailedViewActivity, 2);
+                Intent intntToDetailed = new Intent(MainActivity.this, DetailedViewActivity.class);
+                intntToDetailed.putExtra("title", temp.toString());
+                intntToDetailed.putExtra("priority", temp.getPriority());
+                intntToDetailed.putExtra("dueMonth", temp.getDueMonth());
+                intntToDetailed.putExtra("dueDay", temp.getDueDate());
+                intntToDetailed.putExtra("dueYear", temp.getDueYear());
+                intntToDetailed.putExtra("duration", temp.getDuration());
+                intntToDetailed.putExtra("index", position);
+                startActivityForResult(intntToDetailed, 2);
             }
         });
     }
@@ -76,7 +78,6 @@ public class MainActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
 
         getMenuInflater().inflate(R.menu.main_activity_actions, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -98,13 +99,27 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1 && resultCode == Activity.RESULT_OK){
-            Log.d("Check Returned Assignment", "Returned Assignment Title Information");
-            mAssignments.add(new Assignment(data.getStringExtra("title"), data.getIntExtra("priority", 1), new Date(data.getIntExtra("dueYear", 2015), data.getIntExtra("dueMonth", 1), data.getIntExtra("dueDay", 1)), data.getIntExtra("duration", 0)));
+        if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            mAssignments.add(new Assignment(data.getStringExtra("title"), data.getIntExtra("priority", 1), data.getIntExtra("dueYear", 2015), data.getIntExtra("dueMonth", 1), data.getIntExtra("dueDay", 1), data.getIntExtra("duration", 0)));
             updateAssignmentList();
             mArrayAdapter.notifyDataSetChanged();
+        } else if (requestCode == 2) {
+            Log.d("CHECK", "PROPER COMPLETE/UPDATE ALGOR");
+            if(DetailedViewActivity.ASSIGNMENT_COMPLETED == resultCode) {
+                Log.d("CHECK", "COMPLETE ALGOR");
+                mAssignments.remove(data.getIntExtra("index", 0));
+                updateAssignmentList();
+                mArrayAdapter.notifyDataSetChanged();
+            } else if(DetailedViewActivity.ASSIGNMENT_UPDATED == resultCode) {
+                Log.d("CHECK", "UPDATE ALGOR");
+                mAssignments.remove(data.getIntExtra("index", 0));
+                mAssignments.add(new Assignment(data.getStringExtra("title"), data.getIntExtra("priority", 1), data.getIntExtra("dueYear", 2015), data.getIntExtra("dueMonth", 1), data.getIntExtra("dueDay", 1), data.getIntExtra("duration", 0)));
+                updateAssignmentList();
+                mArrayAdapter.notifyDataSetChanged();
+            }
         }
     }
+
 
     public void freeTime(View view) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -114,7 +129,7 @@ public class MainActivity extends ActionBarActivity {
 
         // Set an EditText view to get user input
         final EditText input = new EditText(this);
-        //input.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setRawInputType(InputType.TYPE_CLASS_NUMBER);
         input.setHint("In Minutes");
         builder.setView(input);
 
@@ -143,15 +158,15 @@ public class MainActivity extends ActionBarActivity {
 
     public void showAssignment(int squoTime)
     {
-
-
         ArrayList<Assignment> dueTomorrow = new ArrayList<Assignment>();
-        Date now = new Date(System.currentTimeMillis());
         Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date(System.currentTimeMillis()));
+        Log.d("Year",cal.get(Calendar.YEAR)+"");
+        Log.d("Month",cal.get(Calendar.MONTH)+"");
+        Log.d("Date",cal.get(Calendar.DATE)+"");
 
         for(Assignment ass : mAssignments) {
-            cal.setTime(ass.getDueDate());
-            if(ass.getDueDate().compareTo(now)>0) {
+            if(ass.getDueYear()==cal.get(Calendar.YEAR) && ass.getDueMonth()==cal.get(Calendar.MONTH)+1 && ass.getDueDate()-1==cal.get(Calendar.DATE)) {
                 dueTomorrow.add(ass);
             }
         }
@@ -162,8 +177,8 @@ public class MainActivity extends ActionBarActivity {
             int diff = 10000000;
             int min = 0;
             for (Assignment ass : dueTomorrow) {
-                if (ass.getDuration() <= squoTime && diff > squoTime - ass.getDuration()) {
-                    diff = squoTime - ass.getDuration();
+                if (diff > Math.abs(squoTime - ass.getDuration())) {
+                    diff = Math.abs(squoTime - ass.getDuration());
                     min = dueTomorrow.indexOf(ass);
                 }
             }
@@ -175,8 +190,8 @@ public class MainActivity extends ActionBarActivity {
             int diff = 10000000;
             int min = 0;
             for (Assignment ass : mAssignments) {
-                if (ass.getDuration() <= squoTime && diff > squoTime - ass.getDuration()) {
-                    diff = squoTime - ass.getDuration();
+                if ( diff > Math.abs(squoTime - ass.getDuration())) {
+                    diff = Math.abs(squoTime - ass.getDuration());
                     min = mAssignments.indexOf(ass);
                 }
             }
@@ -186,7 +201,4 @@ public class MainActivity extends ActionBarActivity {
 
         assignAlert.show();
     }
-
-
-
 }
