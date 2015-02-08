@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF83BE911A87157800FA53BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF83BE901A87157800FA53BC /* Foundation.framework */; };
+		AF83BE931A87157800FA53BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF83BE921A87157800FA53BC /* CoreGraphics.framework */; };
+		AF83BE951A87157800FA53BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF83BE941A87157800FA53BC /* UIKit.framework */; };
+		AF83BE9B1A87157800FA53BC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF83BE991A87157800FA53BC /* InfoPlist.strings */; };
+		AF83BE9D1A87157800FA53BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF83BE9C1A87157800FA53BC /* main.m */; };
+		AF83BEA11A87157800FA53BC /* HSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF83BEA01A87157800FA53BC /* HSAppDelegate.m */; };
+		AF83BEA41A87157900FA53BC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF83BEA21A87157900FA53BC /* Main_iPhone.storyboard */; };
+		AF83BEA71A87157900FA53BC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF83BEA51A87157900FA53BC /* Main_iPad.storyboard */; };
+		AF83BEAA1A87157900FA53BC /* HSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF83BEA91A87157900FA53BC /* HSViewController.m */; };
+		AF83BEAC1A87157900FA53BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF83BEAB1A87157900FA53BC /* Images.xcassets */; };
+		AF83BEB31A87157A00FA53BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF83BEB21A87157A00FA53BC /* XCTest.framework */; };
+		AF83BEB41A87157A00FA53BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF83BE901A87157800FA53BC /* Foundation.framework */; };
+		AF83BEB51A87157A00FA53BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF83BE941A87157800FA53BC /* UIKit.framework */; };
+		AF83BEBD1A87157A00FA53BC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF83BEBB1A87157A00FA53BC /* InfoPlist.strings */; };
+		AF83BEBF1A87157A00FA53BC /* ConsiliumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF83BEBE1A87157A00FA53BC /* ConsiliumTests.m */; };
+		AF97A60B1A8720C8008D5E68 /* Assignment.m in Sources */ = {isa = PBXBuildFile; fileRef = AF97A60A1A8720C8008D5E68 /* Assignment.m */; };
+		AF97A6111A8726C1008D5E68 /* HSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF97A6101A8726C1008D5E68 /* HSDetailViewController.m */; };
+		AF97A6141A872985008D5E68 /* HSEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF97A6131A872985008D5E68 /* HSEditViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF83BEB61A87157A00FA53BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF83BE851A87157700FA53BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF83BE8C1A87157800FA53BC;
+			remoteInfo = Consilium;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AF83BE8D1A87157800FA53BC /* Consilium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consilium.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF83BE901A87157800FA53BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AF83BE921A87157800FA53BC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AF83BE941A87157800FA53BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AF83BE981A87157800FA53BC /* Consilium-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Consilium-Info.plist"; sourceTree = "<group>"; };
+		AF83BE9A1A87157800FA53BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AF83BE9C1A87157800FA53BC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AF83BE9E1A87157800FA53BC /* Consilium-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Consilium-Prefix.pch"; sourceTree = "<group>"; };
+		AF83BE9F1A87157800FA53BC /* HSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSAppDelegate.h; sourceTree = "<group>"; };
+		AF83BEA01A87157800FA53BC /* HSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSAppDelegate.m; sourceTree = "<group>"; };
+		AF83BEA31A87157900FA53BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		AF83BEA61A87157900FA53BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		AF83BEA81A87157900FA53BC /* HSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSViewController.h; sourceTree = "<group>"; };
+		AF83BEA91A87157900FA53BC /* HSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSViewController.m; sourceTree = "<group>"; };
+		AF83BEAB1A87157900FA53BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AF83BEB11A87157A00FA53BC /* ConsiliumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConsiliumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF83BEB21A87157A00FA53BC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AF83BEBA1A87157A00FA53BC /* ConsiliumTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ConsiliumTests-Info.plist"; sourceTree = "<group>"; };
+		AF83BEBC1A87157A00FA53BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AF83BEBE1A87157A00FA53BC /* ConsiliumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsiliumTests.m; sourceTree = "<group>"; };
+		AF97A6091A8720C8008D5E68 /* Assignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assignment.h; sourceTree = "<group>"; };
+		AF97A60A1A8720C8008D5E68 /* Assignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assignment.m; sourceTree = "<group>"; };
+		AF97A60F1A8726C1008D5E68 /* HSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSDetailViewController.h; sourceTree = "<group>"; };
+		AF97A6101A8726C1008D5E68 /* HSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSDetailViewController.m; sourceTree = "<group>"; };
+		AF97A6121A872985008D5E68 /* HSEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSEditViewController.h; sourceTree = "<group>"; };
+		AF97A6131A872985008D5E68 /* HSEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSEditViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF83BE8A1A87157800FA53BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF83BE931A87157800FA53BC /* CoreGraphics.framework in Frameworks */,
+				AF83BE951A87157800FA53BC /* UIKit.framework in Frameworks */,
+				AF83BE911A87157800FA53BC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF83BEAE1A87157A00FA53BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF83BEB31A87157A00FA53BC /* XCTest.framework in Frameworks */,
+				AF83BEB51A87157A00FA53BC /* UIKit.framework in Frameworks */,
+				AF83BEB41A87157A00FA53BC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF83BE841A87157700FA53BC = {
+			isa = PBXGroup;
+			children = (
+				AF83BE961A87157800FA53BC /* Consilium */,
+				AF83BEB81A87157A00FA53BC /* ConsiliumTests */,
+				AF83BE8F1A87157800FA53BC /* Frameworks */,
+				AF83BE8E1A87157800FA53BC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF83BE8E1A87157800FA53BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF83BE8D1A87157800FA53BC /* Consilium.app */,
+				AF83BEB11A87157A00FA53BC /* ConsiliumTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF83BE8F1A87157800FA53BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF83BE901A87157800FA53BC /* Foundation.framework */,
+				AF83BE921A87157800FA53BC /* CoreGraphics.framework */,
+				AF83BE941A87157800FA53BC /* UIKit.framework */,
+				AF83BEB21A87157A00FA53BC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF83BE961A87157800FA53BC /* Consilium */ = {
+			isa = PBXGroup;
+			children = (
+				AF83BE9F1A87157800FA53BC /* HSAppDelegate.h */,
+				AF83BEA01A87157800FA53BC /* HSAppDelegate.m */,
+				AF83BEA21A87157900FA53BC /* Main_iPhone.storyboard */,
+				AF83BEA51A87157900FA53BC /* Main_iPad.storyboard */,
+				AF83BEA81A87157900FA53BC /* HSViewController.h */,
+				AF83BEA91A87157900FA53BC /* HSViewController.m */,
+				AF83BEAB1A87157900FA53BC /* Images.xcassets */,
+				AF83BE971A87157800FA53BC /* Supporting Files */,
+				AF97A6091A8720C8008D5E68 /* Assignment.h */,
+				AF97A60A1A8720C8008D5E68 /* Assignment.m */,
+				AF97A60F1A8726C1008D5E68 /* HSDetailViewController.h */,
+				AF97A6101A8726C1008D5E68 /* HSDetailViewController.m */,
+				AF97A6121A872985008D5E68 /* HSEditViewController.h */,
+				AF97A6131A872985008D5E68 /* HSEditViewController.m */,
+			);
+			path = Consilium;
+			sourceTree = "<group>";
+		};
+		AF83BE971A87157800FA53BC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF83BE981A87157800FA53BC /* Consilium-Info.plist */,
+				AF83BE991A87157800FA53BC /* InfoPlist.strings */,
+				AF83BE9C1A87157800FA53BC /* main.m */,
+				AF83BE9E1A87157800FA53BC /* Consilium-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF83BEB81A87157A00FA53BC /* ConsiliumTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF83BEBE1A87157A00FA53BC /* ConsiliumTests.m */,
+				AF83BEB91A87157A00FA53BC /* Supporting Files */,
+			);
+			path = ConsiliumTests;
+			sourceTree = "<group>";
+		};
+		AF83BEB91A87157A00FA53BC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF83BEBA1A87157A00FA53BC /* ConsiliumTests-Info.plist */,
+				AF83BEBB1A87157A00FA53BC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF83BE8C1A87157800FA53BC /* Consilium */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF83BEC21A87157A00FA53BC /* Build configuration list for PBXNativeTarget "Consilium" */;
+			buildPhases = (
+				AF83BE891A87157800FA53BC /* Sources */,
+				AF83BE8A1A87157800FA53BC /* Frameworks */,
+				AF83BE8B1A87157800FA53BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Consilium;
+			productName = Consilium;
+			productReference = AF83BE8D1A87157800FA53BC /* Consilium.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF83BEB01A87157A00FA53BC /* ConsiliumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF83BEC51A87157A00FA53BC /* Build configuration list for PBXNativeTarget "ConsiliumTests" */;
+			buildPhases = (
+				AF83BEAD1A87157A00FA53BC /* Sources */,
+				AF83BEAE1A87157A00FA53BC /* Frameworks */,
+				AF83BEAF1A87157A00FA53BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF83BEB71A87157A00FA53BC /* PBXTargetDependency */,
+			);
+			name = ConsiliumTests;
+			productName = ConsiliumTests;
+			productReference = AF83BEB11A87157A00FA53BC /* ConsiliumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF83BE851A87157700FA53BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HS;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Amog Kamsetty";
+				TargetAttributes = {
+					AF83BEB01A87157A00FA53BC = {
+						TestTargetID = AF83BE8C1A87157800FA53BC;
+					};
+				};
+			};
+			buildConfigurationList = AF83BE881A87157700FA53BC /* Build configuration list for PBXProject "Consilium" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF83BE841A87157700FA53BC;
+			productRefGroup = AF83BE8E1A87157800FA53BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF83BE8C1A87157800FA53BC /* Consilium */,
+				AF83BEB01A87157A00FA53BC /* ConsiliumTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF83BE8B1A87157800FA53BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF83BEA71A87157900FA53BC /* Main_iPad.storyboard in Resources */,
+				AF83BEAC1A87157900FA53BC /* Images.xcassets in Resources */,
+				AF83BEA41A87157900FA53BC /* Main_iPhone.storyboard in Resources */,
+				AF83BE9B1A87157800FA53BC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF83BEAF1A87157A00FA53BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF83BEBD1A87157A00FA53BC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF83BE891A87157800FA53BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF97A60B1A8720C8008D5E68 /* Assignment.m in Sources */,
+				AF97A6111A8726C1008D5E68 /* HSDetailViewController.m in Sources */,
+				AF83BEAA1A87157900FA53BC /* HSViewController.m in Sources */,
+				AF83BE9D1A87157800FA53BC /* main.m in Sources */,
+				AF83BEA11A87157800FA53BC /* HSAppDelegate.m in Sources */,
+				AF97A6141A872985008D5E68 /* HSEditViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF83BEAD1A87157A00FA53BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF83BEBF1A87157A00FA53BC /* ConsiliumTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF83BEB71A87157A00FA53BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF83BE8C1A87157800FA53BC /* Consilium */;
+			targetProxy = AF83BEB61A87157A00FA53BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AF83BE991A87157800FA53BC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF83BE9A1A87157800FA53BC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AF83BEA21A87157900FA53BC /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF83BEA31A87157900FA53BC /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		AF83BEA51A87157900FA53BC /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF83BEA61A87157900FA53BC /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		AF83BEBB1A87157A00FA53BC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF83BEBC1A87157A00FA53BC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF83BEC01A87157A00FA53BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF83BEC11A87157A00FA53BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF83BEC31A87157A00FA53BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Consilium/Consilium-Prefix.pch";
+				INFOPLIST_FILE = "Consilium/Consilium-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AF83BEC41A87157A00FA53BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Consilium/Consilium-Prefix.pch";
+				INFOPLIST_FILE = "Consilium/Consilium-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AF83BEC61A87157A00FA53BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Consilium.app/Consilium";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Consilium/Consilium-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ConsiliumTests/ConsiliumTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AF83BEC71A87157A00FA53BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Consilium.app/Consilium";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Consilium/Consilium-Prefix.pch";
+				INFOPLIST_FILE = "ConsiliumTests/ConsiliumTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF83BE881A87157700FA53BC /* Build configuration list for PBXProject "Consilium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF83BEC01A87157A00FA53BC /* Debug */,
+				AF83BEC11A87157A00FA53BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF83BEC21A87157A00FA53BC /* Build configuration list for PBXNativeTarget "Consilium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF83BEC31A87157A00FA53BC /* Debug */,
+				AF83BEC41A87157A00FA53BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF83BEC51A87157A00FA53BC /* Build configuration list for PBXNativeTarget "ConsiliumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF83BEC61A87157A00FA53BC /* Debug */,
+				AF83BEC71A87157A00FA53BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF83BE851A87157700FA53BC /* Project object */;
+}
