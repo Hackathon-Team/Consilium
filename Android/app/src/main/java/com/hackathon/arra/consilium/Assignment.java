@@ -1,6 +1,8 @@
 package com.hackathon.arra.consilium;
 
 import android.app.LauncherActivity;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.sql.Time;
 import java.util.Comparator;
@@ -9,7 +11,7 @@ import java.util.Date;
 /**
  * Created by Abinesh on 2/7/15.
  */
-public class Assignment extends LauncherActivity.ListItem implements Comparable<Assignment> {
+public class Assignment extends LauncherActivity.ListItem implements Comparable<Assignment>, Parcelable {
     /**
      * @param String value for the assignment's title
      */
@@ -67,5 +69,15 @@ public class Assignment extends LauncherActivity.ListItem implements Comparable<
         if(this.getDuration() > another.getDuration()) return 1;
         else if(this.getDuration() == another.getDuration()) return 0;
         else return -1;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }
